@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SkipAD</title>
+    <link rel="icon" type="image" href="./phonepicutres-TA.webp" />
+    <style>
+      body {
+        box-sizing: border-box;
+      }
+      #Skip {
+        z-index: 1;
+        position: absolute;
+        margin-top: 350px;
+        margin-left: 440px;
+        display: none;
+      }
+      #timer {
+        position: absolute;
+        margin-top: 350px;
+        margin-left: -10px;
+        display: none;
+      }
+      iframe {
+        height: 400px;
+        width: 600px;
+        background-color: antiquewhite;
+        padding: 0px;
+        margin: 0px;
+      }
+      video {
+        height: 400px;
+        width: 600px;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="Play">
+      <a href="./poster.html" target="myscreen" alt="picture">Play</a>
+    </button>
+    <button id="timer">AD Ends In:<span id="timerr"></span></button>
+    <button id="Skip" >
+      <a
+        href="./Sajni - Laapataa Ladies Ft. Arijit Singh-(Hd9video).mp4"
+        target="myscreen"
+        alt="video"
+        aria-disabled="false"
+        >SkipAd</a
+      >
+      <span id="p"></span>
+    </button>
+    <br />
+    <iframe src="" name="myscreen"></iframe>
+
+    <script>
+      let play = document.getElementById("Play");
+      let skip = document.getElementById("Skip");
+      let p = document.getElementById("p");
+      let video = document.getElementsByClassName("video");
+      let a = document.getElementsByTagName("a");
+      let timerr = document.getElementById("timerr");
+      let timer = document.getElementById("timer");
+      play.addEventListener("click", () => {
+        let timerspan = setInterval(
+          () => {
+            timerr.innerHTML = y;
+            y--;
+          },
+          1000,
+          (y = 20)
+        );
+
+        skip.style.display = "inline";
+        timer.style.display = "inline";
+
+        let timeinterval = setInterval(
+          () => {
+            p.innerHTML = x;
+            x--;
+            if (x == 0) {
+              clearInterval(timeinterval);
+              timer.style.display = "inline";
+            }
+          },
+          1000,
+          (x = 5)
+        );
+      });
+
+      skip.addEventListener("click", () => {
+        timer.style.display = "none";
+        skip.style.display = "none";
+      });
+    </script>
+  </body>
+</html>
